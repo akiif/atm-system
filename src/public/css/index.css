@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Montserrat:wght@400;500;700;900&family=Sora:wght@800&display=swap');
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #645cff; /* f5ba13 2F3C7E 645cff */
+  --secondary-color: #948FFF;
+  --hover-color: #3b83bd;
+  --secondary-background-color: #fff;
+  --background-color: #eee;
+  --text-color: #000;
+  --clr-white: #fff;
+  --clr-black: #000;
+  --modal-container: rgba(0, 0, 0, 0.7);
+  --edit-task-form: #f2f3f4;
+  --modal-bottom-btn-container: rgba(255, 255, 255, .4);
+  --loading-ball-color: #000;
+  --main-form-input: #fff;
+  --add-task-form-box: rgb(138, 137, 137);
+}
+
+body,
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  background-image: url("/images/cubes.png");
+  align-items: stretch;
+}
+
+/* Navbar Section */
+
+.navbar-section {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  padding: 16px 40px;
+}
+
+.logo {
+  font-size: 2rem;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo a {
+  color: var(--clr-white);
+  text-decoration: none;
+  font-family: 'Sora', sans-serif;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  margin-right: 5px;
+}
+
+
+/* Home Page */
+.home-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Fredoka One', cursive;
+  font-size: 2rem;
+}
+
+.welcome-section img {
+  margin-top: 10px;
+  width: 250px;
+  height: 250px;
+}
+
+.redirect-section {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.redirect-item {
+  margin-top: 20px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  padding: 50px;
+  border: 1px solid rgb(110,106,106);
+  border-radius: 5px;
+  box-shadow: #00000029 0 1px 4px;
+}
+
+.redirect-item h2 {
+  font-family: 'Sora', sans-serif;
+  padding: 10px;
+}
+
+.redirect-btn  p{
+  color: #fff;
+  font-size: 20px;
+}
+
+.redirect-btn {
+  margin: 20px;
+  min-width: 135px;
+  height: 45px;
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  overflow: hidden;
+  border-radius: 5px;
+  border: none;
+  background-color: #645cff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5), 7px 7px 20px 0px rgba(0,0,0,.1), 4px 4px 5px 0px rgba(0,0,0,.1);
+}
+.redirect-btn:hover {
+  border-radius: 5px;
+  padding-right: 24px;
+  padding-left:8px;
+}
+.redirect-btn:hover:after {
+  opacity: 1;
+  right: 10px;
+}
+.redirect-btn:after {
+  content: "\00BB";
+  position: absolute;
+  opacity: 0;
+  font-size: 20px;
+  line-height: 42px;
+  top: 0;
+  right: -20px;
+  transition: 0.4s;
+}
+
+/*  Error Page */
+.error-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-page-title {
+  font-size: 6rem;
+  color: #bb000e;
+}
+
+.error-page-p {
+  margin: 10px;
+  font-size: 1.4rem;
+  color: #e31c25;
+}
+
+.error-page-p a {
+  text-decoration: none;
+  color: #2980b9;
+}
+
+footer {
+  margin-top: auto;
+  text-align: center;
+  padding: 10px;
+  color: #ccc;
+}
+
+footer a {
+  text-decoration: none;
+  color: inherit;
+}
+
+footer a:hover,
+footer a:focus {
+  color: var(--primary-color);
+}
+
+
+/* Scroll Bar  */
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 3rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--background-color);
+  border-radius: 3rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(---clr-white);
+  border-radius: 3rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #4913f5;
+  border-radius: 3rem;
+}
+
+
+
+
+/* Media Query for Smartphones */
+
+@media (max-width: 768px) {
+  .redirect-section {
+    flex-direction: column;
+  }
+}
+
+

@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof depositError !== 'undefined') { %>
+    <script>toastr.error('<%= depositError %>')</script>
+  <% } %>
+  <div class="form-page">
+    <div class="form-page-container">
+      <div class="title-section">
+        <h1 class="form-heading">Deposit</h1>
+      </div>
+      <form action="/atm/deposit" method="post" class="register-form">
+        <div class="show-balance">
+          <p>Your Account Balance is: &nbsp; ₹ <%= (balance).toFixed(3) %> </p>
+        </div>
+        <div class="atm-input-group">
+          <label for="deposit_amount">Enter the amount that you want to deposit: </label>
+          <input type="number" name="deposit_amount" step="0.01" min="0.1" required>
+        </div>
+        <button type="submit" class="atm-btn">Deposit</button>
+      </form>
+      <p class="form-footer">Go to <a href="/profile">Profile</a></p>
+    </div>
+  </div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,75 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof loginSuccess !== 'undefined') { %>
+    <script>toastr.success('<%= loginSuccess %>')</script>
+  <% } %>
+  <% if (typeof withdrawSuccess !== 'undefined') { %>
+    <script>toastr.success('<%= withdrawSuccess %>')</script>
+  <% } %>
+  <% if (typeof depositSuccess !== 'undefined') { %>
+    <script>toastr.success('<%= depositSuccess %>')</script>
+  <% } %>
+  <% if (typeof editProfileSuccess !== 'undefined') { %>
+    <script>toastr.success('<%= editProfileSuccess %>')</script>
+  <% } %>
+
+  <div class="profile-page">
+    <section class="profile-title-section">
+      <h1>Profile</h1>
+    </section>
+    <section class="profile-section">
+      <div class="profile-name">
+        <h4>Hello <%= name %>, </h4>
+        <p>Your Profile Details are:</p>
+      </div>
+      <div class="profile-details">
+        <div class="personal-details">
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">Username:</p>
+            <p class="profile-detaile-value"><%= username %> </p>
+          </div>
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">Email ID:</p>
+            <p class="profile-detaile-value"><%= email_id %> </p>
+          </div>
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">DOB: </p>
+            <p class="profile-detaile-value"><%= dob %> </p>
+          </div>
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">Phone: </p>
+            <p class="profile-detaile-value"><%= phno %> </p>
+          </div>
+        </div>
+        <div class="account-details">
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">Account Number:</p>
+            <p class="profile-detaile-value"><%= account_id %> </p>
+          </div>
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">Account Type:</p>
+            <p class="profile-detaile-value"><%= account_type %> </p>
+          </div>
+          <div class="profile-detail-group">
+            <p class="profile-detail-label">Account Balance:</p>
+            <p class="profile-detaile-value">₹ <%= (balance).toFixed(3) %> </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="profile-menu-section">
+      <div class="profile-title-section">
+        <h1>Menu</h1>
+      </div>
+      <div class="profile-menu-list">
+        <a href="/atm/transactions" class="profile-menu-btn"> <p>Transactions</p> </a>
+        <a href="/atm/deposit" class="profile-menu-btn"><p>Deposit</p></a>
+        <a href="/atm/withdraw" class="profile-menu-btn"><p>Withdraw</p></a>
+        <a href="/profile/edit" class="profile-menu-btn"><p>Edit Profile</p></a>
+        <a href="/logout" class="profile-menu-btn"><p>Logout</p></a>
+      </div>
+    </section>
+  </div>
+
+<%- include("partials/footer") %>

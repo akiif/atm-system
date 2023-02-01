@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof authError !== 'undefined') { %>
+    <script>toastr.warning('<%= authError %>')</script>
+  <% } %> 
+  <% if (typeof registerSuccess !== 'undefined') { %>
+    <script>toastr.success('<%= registerSuccess %>')</script>
+  <% } %>
+  <% if (typeof errorMessages !== 'undefined') { %> 
+    <% errorMessages && errorMessages.forEach((error) => { %>
+      <script>toastr.error('<%= error %>')</script>
+    <% }); %> 
+  <% } %>
+  <div class="form-page">
+    <div class="form-page-container">
+      <div class="title-section">
+        <h1 class="form-heading">Login</h1>
+      </div>
+      <form action="/login" method="post" class="register-form">
+        <div class="input-group">
+          <input type="text" placeholder="Username" name="username" required class="register-input">
+        </div>
+        <div class="input-group">
+          <input type="password" placeholder="Password" name="password" required class="register-input">
+        </div>
+        <button type="submit" class="atm-btn form-btn">Login</button>
+      </form>
+      <p class="form-footer">Don't have an account? <a href="/register">Register here</a></p>
+    </div>
+  </div>
+
+<%- include("partials/footer") %>

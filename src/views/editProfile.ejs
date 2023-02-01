@@ -1,0 +1,52 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof errorMessages !== 'undefined') { %> 
+    <% errorMessages && errorMessages.forEach((error) => { %>
+      <script>toastr.error('<%= error %>')</script>
+    <% }); %> 
+  <% } %> 
+
+  <div class="profile-form-page">
+    <div class="profile-form-page-container">
+      <div class="title-section">
+        <h1 class="form-heading">Edit Profile</h1>
+      </div>
+      <form action="/profile/edit" method="post" class="register-form">
+        <div class="input-group">
+          <div class="edit-profile-label-container">
+            <label for="username" class="form-label">Username:</label>
+          </div>
+          <input type="text" value="<%= username %>" placeholder="Username" name="username" required class="register-input">
+        </div>
+        <div class="input-group">
+          <div class="edit-profile-label-container">
+            <label for="email_id" class="form-label">Email:</label>
+          </div>
+          <input type="email" value="<%= email_id %>" placeholder="Email" name="email_id" required class="register-input">
+        </div>
+        <div class="input-group">
+          <div class="edit-profile-label-container">
+            <label for="old_password" class="form-label">Old Password:</label>
+          </div>
+          <input type="password" placeholder="Old Password" name="old_password" required class="register-input">
+        </div>
+        <div class="input-group">
+          <div class="edit-profile-label-container">
+            <label for="new_password" class="form-label">New Password:</label>
+          </div>
+          <input type="password" placeholder="New Password" name="new_password" required class="register-input">
+        </div>
+        <div class="input-group">
+          <div class="edit-profile-label-container">
+            <label for="phno" class="form-label">Phone:</label>
+          </div>
+          <input type="text" value="<%= phno %>" placeholder="Phone No." name="phno" required class="register-input">
+        </div>
+        <button type="submit" class="form-btn">Submit</button>
+      </form>
+      <p class="form-footer">Go Back To <a href="/profile">PROFILE</a></p>
+    </div>
+  </div>
+
+<%- include("partials/footer") %>

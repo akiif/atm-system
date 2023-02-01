@@ -1,0 +1,62 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof transactionsError !== 'undefined') { %>
+    <script>toastr.error('<%= transactionsError %>')</script>
+  <% } %>
+  <div class="transactions-page">
+    <section class="profile-title-section">
+      <h1>Transactions</h1>
+    </section>
+    <section class="profile-section">
+      <div class="account-details">
+        <div class="profile-detail-group">
+          <p class="profile-detail-label">Account Number:</p>
+          <p class="profile-detaile-value"><%= account_id %> </p>
+        </div>
+        <div class="profile-detail-group">
+          <p class="profile-detail-label">Account Type:</p>
+          <p class="profile-detaile-value"><%= account_type %> </p>
+        </div>
+        <div class="profile-detail-group">
+          <p class="profile-detail-label">Closing Balance:</p>
+          <p class="profile-detaile-value">₹ <%= (balance).toFixed(3) %> </p>
+        </div>
+        <div class="profile-detail-group goto-profile">
+          <p class="profile-detail-label">For Full Account Details Go To <a class="goto-profile-link" href="/profile">PROFILE</a></p>
+        </div>
+    </section>
+    <section class="transactions-table-section">
+      <% if (transactions.length === 0) { %>
+        <div class="no-transactions">
+          <h2>No Transactions Available</h2>
+        </div>
+      <% } else { %>  
+        <table class="transactions-table">
+          <tr>
+            <th>Date</th>
+            <th>Transaction ID</th>
+            <th>Type</th>
+            <th>Amount DR/CR</th>
+            <th>Balance</th>
+          </tr>
+          <% transactions.forEach((transaction) => { %>
+            <% const amountClass = transaction.trnx_type == 1 ? 'credit-amt' : 'debit-amt' %>
+            <% const amountText = transaction.trnx_type == 1 ? 'Cr' : 'Dr' %>
+            <tr>
+              <td><%= new Date(transaction.trnx_date).toLocaleDateString().split('/').join('-'); %></td>
+              <td><%= transaction.trnx_id %></td>
+              <td><%= transaction.type_name %></td>
+              <td class="<%= amountClass %>" ><%= transaction.amount + " " +amountText %></td>
+              <td><%= transaction.balance %></td>
+            </tr>
+          <% }) %> 
+        </table>
+      <% } %>
+      <div class="transactions-go-back">
+        <p>Go Back To <a class="goto-profile-link" href="/profile"><span>PROFILE</span></a></p>
+      </div>
+    </section>
+  </div>
+
+<%- include("partials/footer") %>

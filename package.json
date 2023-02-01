@@ -1,0 +1,25 @@
+{
+  "name": "atm-system",
+  "version": "1.0.0",
+  "description": "An ATM Management System built using Node.js and MySql",
+  "main": "src/app.js",
+  "author": "Akif Mohammed",
+  "license": "MIT",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-mysql-session": "^2.1.8",
+    "express-session": "^1.17.3",
+    "mysql2": "^3.0.1",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "short-uuid": "^4.2.2",
+    "uuid": "^9.0.0"
+  }
+}

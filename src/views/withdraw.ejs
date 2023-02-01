@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof withdrawError !== 'undefined') { %>
+    <script>toastr.error('<%= withdrawError %>')</script>
+  <% } %>
+  <div class="form-page">
+    <div class="form-page-container">
+      <div class="title-section">
+        <h1 class="form-heading">Withdraw</h1>
+      </div>
+      <form action="/atm/withdraw" method="post" class="register-form">
+        <div class="show-balance">
+          <p>Your Account Balance is: &nbsp; ₹ <%= (balance).toFixed(3) %> </p>
+        </div>
+        <div class="atm-input-group">
+          <label for="withdraw_amount">Enter the amount that you want to withdraw: </label>
+          <input type="number" name="withdraw_amount" step="0.01" min="0.1" required>
+        </div>
+        <button type="submit" class="atm-btn">Withdraw</button>
+      </form>
+      <p class="form-footer">Go to <a href="/profile">Profile</a></p>
+    </div>
+  </div>
+
+<%- include("partials/footer") %>

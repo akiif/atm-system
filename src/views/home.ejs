@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+
+  <% if (typeof logoutSuccess !== 'undefined') { %>
+    <script>toastr.info('<%= logoutSuccess %>')</script>
+  <% } %>
+  
+  <div class="home-page">
+    <section class="welcome-section">
+      <h1>Welcome to ATM System</h1>
+      <img src="/images/atm.svg" alt="atm-img">
+    </section>
+    <section class="redirect-section">
+      <div class="redirect-login redirect-item">
+        <h2>Already Have an Account?</h2>
+        <a class="redirect-btn" href="/login"><p>Login</p></a>
+      </div>
+      <div class="redirect-register redirect-item">
+        <h2>New Here?</h2>
+        <a class="redirect-btn" href="/register"><p>Register</p></a>
+      </div>
+    </section>
+  </div>
+
+<%- include("partials/footer") %>
